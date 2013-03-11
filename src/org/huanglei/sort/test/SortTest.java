@@ -7,6 +7,7 @@ import java.util.Random;
 
 import org.huanglei.sort.BubbleSort;
 import org.huanglei.sort.InsertionSort;
+import org.huanglei.sort.QuickSort;
 import org.huanglei.sort.SelectionSort;
 import org.huanglei.sort.ShellSort;
 import org.huanglei.sort.Sort;
@@ -56,10 +57,15 @@ public class SortTest {
 		start = System.nanoTime();
 		sort.sort(arr);
 		end = System.nanoTime();
-		SortAnnotation name = sort.getClass().getAnnotation(
+		SortAnnotation sortAnnotation = sort.getClass().getAnnotation(
 				SortAnnotation.class);
-		System.out.println(name.value() + " run " + (end - start) / 1000
-				+ " ms");
+		String name;
+		if (sortAnnotation == null) {
+			name = Sort.class.getName();
+		} else {
+			name = sortAnnotation.value();
+		}
+		System.out.println(name + " run " + (end - start) / 1000 + " ms");
 		print(arr);
 	}
 
@@ -81,6 +87,11 @@ public class SortTest {
 	@Test
 	public void testSelectionSort() {
 		runTest(new SelectionSort());
+	}
+
+	@Test
+	public void testQuickSort() {
+		runTest(new QuickSort());
 	}
 
 	public void print(int a[]) {
