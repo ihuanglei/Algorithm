@@ -10,7 +10,7 @@ public class QuickSort implements Sort {
 
 	@Override
 	public void sort(int[] a) {
-
+		int n = a.length, temp = 0;
 	}
 
 }

@@ -12,9 +12,9 @@ public class SelectionSort implements Sort {
 
 	@Override
 	public void sort(int[] a) {
-		int n = a.length;
+		int n = a.length, min = 0, temp = 0;
 		for (int i = 0; i < n; ++i) {
-			int min = i;
+			min = i;
 			for (int j = i + 1; j < n; ++j) {
 				if (a[j] < a[min]) {
 					min = j;
@@ -22,7 +22,7 @@ public class SelectionSort implements Sort {
 			}
 
 			if (min != i) {
-				int temp = a[min];
+				temp = a[min];
 				a[min] = a[i];
 				a[i] = temp;
 			}
