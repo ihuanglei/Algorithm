@@ -4,7 +4,7 @@ import org.huanglei.sort.annotation.SortAnnotation;
 
 /**
  * @author: huanglei
- * @descript Shell排序(插入排序改进)
+ * @descript 希尔排序
  */
 @SortAnnotation("ShellSort")
 public class ShellSort implements Sort {
